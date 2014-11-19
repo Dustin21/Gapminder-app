@@ -5,8 +5,13 @@ gDat <- read.delim(file = gdURL)
 
 shinyServer(function(input, output){
 	
+	output$choose_country <- renderUI({
+		selectInput("country_from_gapminder", "Country", as.list(levels(gDat$country))
+								)
+	})
+	
 	one_country_data  <- reactive({
-		subset(gDat, country == input$select_country & 
+		subset(gDat, country == input$country_from_gapminder & 
 					 	year >= input$year_range[1] & year <= input$year_range[2] )
 	})
 	
@@ -15,7 +20,7 @@ shinyServer(function(input, output){
 	})
 	output$output_country <- renderText({
 		cat(input$year_range)
-		paste("Country selected", input$select_country)
+		paste("Country selected", input$country_from_gapminder)
 	})
 	output$info <- renderPrint({
 		str(input$year_range)
