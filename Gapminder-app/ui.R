@@ -17,6 +17,8 @@ shinyUI(fluidPage (
 								 ),
 		mainPanel("My cool graphs will go here",
 							textOutput("output_country"),
+							textOutput("info"), 
+							plotOutput("ggplot_gdppc_vs_country"),
 							tableOutput("gapminder_table"))
 		
 		)
