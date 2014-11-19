@@ -11,6 +11,11 @@ shinyServer(function(input, output){
 	})
 	
 	one_country_data  <- reactive({
+		
+		if(is.null(input$country_from_gapminder)) {
+			return(NULL)
+		}
+		
 		subset(gDat, country == input$country_from_gapminder & 
 					 	year >= input$year_range[1] & year <= input$year_range[2] )
 	})
@@ -26,9 +31,14 @@ shinyServer(function(input, output){
 		str(input$year_range)
 	})
 	output$ggplot_gdppc_vs_country <- renderPlot({
+		
+		if(is.null(one_country_data())) {
+			return(NULL)
+		}
+		
 		p <- ggplot(one_country_data(), 
 								aes(x = year, y = gdpPercap))
-		p + geom_point()
+		p + geom_point() + geom_line(aes(colour = country))
 	})
 	
 })
