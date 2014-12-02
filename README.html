@@ -54,8 +54,14 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="gapminder-app" class="section level1">
 <h1>Gapminder-app</h1>
-<p>This is a Shiny app that enables you to interactively select data pertaining to country and year, while analysing it through a plot.</p>
+<p>This is a Shiny app that enables you to interactively select data pertaining to country and year, while analysing it through a plot. You will be able to look at multiple countries at once in one plot, or simply click a box to facet wrap each country individially.</p>
 <p>Click <a href="https://dustin21.shinyapps.io/Gapminder-app/">here</a> to begin using the app.</p>
+<div id="reflections" class="section level3">
+<h3>Reflections</h3>
+<p>This was a great training excercise for the big game. I didn’t have many issues with this exercise, although I did run into some problems when integrating <code>facet_wrap</code>. After throwing in an <code>if</code> function, to the plot itself, everything worked out well.</p>
+<p>One thing I am not too keen on is the <code>dateRangeInput</code>, as it forces me to enter months when I access the widget manually. I would prefer a simple input box to just enter the year in question.</p>
+<p>I relied mainly on Julia Gustavsen’s and Jenny Bryan’s <a href="http://stat545-ubc.github.io/shiny00_index.html">Shiny Overview</a>, and links provided. The rest of my energy was set on developing my own app, so check out my <a href="https://dustin21.shinyapps.io/MarketApp/">Market App</a>!</p>
+</div>
 </div>
 
 
