@@ -1,7 +1,6 @@
 library(ggplot2);
 
-gdURL <- "http://tiny.cc/gapminder"
-gDat <- read.delim(file = gdURL)
+gDat <- read.delim(file = "./data/gapminder.tsv") 
 
 
 shinyServer(function(input, output){
@@ -41,7 +40,16 @@ shinyServer(function(input, output){
 		
 		p <- ggplot(one_country_data(), 
 								aes(x = year, y = gdpPercap))
-		p + geom_point() + geom_line(aes(colour = country))
+		p2 <- p + geom_point() + geom_line(aes(colour = country))
+		
+		if(input$facet == TRUE) {
+			p2 + facet_wrap(~ country) + guides(colour = FALSE)
+		}else{
+			p2
+		}
+		
+		
+		
 	})
 	
 })
