@@ -5,6 +5,11 @@ This is a Shiny app that enables you to interactively select data pertaining to 
 
 Click [here](https://dustin21.shinyapps.io/Gapminder-app/) to begin using the app.
 
+### Instructions
+
+1. Run locally by cloning into a directory and click `Run App` when either `server.R` or `ui.R` is open. You can also run the app with the command `shiny::runApp('Gapminder-app')`  in the console.
+2. Check it out in your web browser by clicking [here](https://dustin21.shinyapps.io/Gapminder-app/).
+
 ### Reflections
 This was a great training excercise for the big game. I didn't have many issues with this exercise, although I did run into some problems when integrating `facet_wrap`. After throwing in an `if` function, to the plot itself, everything worked out well.
 
